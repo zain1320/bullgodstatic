@@ -674,7 +674,7 @@ section {
 .lore-text p {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     line-height: 1.6;
-    color: white;
+    color: #CB9D06;
     font-weight: 400;
     font-style: italic;
     margin: 0;
