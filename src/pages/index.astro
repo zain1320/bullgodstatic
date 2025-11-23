@@ -119,6 +119,52 @@ import '../styles/global.css';
         </div>
     </section>
 
+    <!-- Lore Section -->
+    <section id="loreSection" style="background: #151515; padding: 80px 16px;">
+        <div class="container">
+            <h2 class="section-title">THE LEGEND</h2>
+            <p class="section-subtitle" style="color: #CB9D06;">BULLGOD'S ORIGIN</p>
+
+            <div class="lore-container">
+                <div class="lore-item" data-lore="1">
+                    <div class="lore-image-wrapper">
+                        <img src="/lore/lore1.png" alt="Lore 1" class="lore-image">
+                    </div>
+                    <div class="lore-text">
+                        <p>Long before the chains awakened, a forgotten deity stirred. BullGod rose from the deep code of the Base Realm, summoned by imbalance… and destiny.</p>
+                    </div>
+                </div>
+
+                <div class="lore-item" data-lore="2">
+                    <div class="lore-image-wrapper">
+                        <img src="/lore/lore2.png" alt="Lore 2" class="lore-image">
+                    </div>
+                    <div class="lore-text">
+                        <p>To earn his place among heroes, BullGod faced the Trials - shadows born from fear, doubt, and corrupted blocks. None stood against him.</p>
+                    </div>
+                </div>
+
+                <div class="lore-item" data-lore="3">
+                    <div class="lore-image-wrapper">
+                        <img src="/lore/lore3.png" alt="Lore 3" class="lore-image">
+                    </div>
+                    <div class="lore-text">
+                        <p>BullGod saw humanity - fragile but fearless. In them, he found purpose. In him, they found a guardian. A pact was written not in ink… but in trust.</p>
+                    </div>
+                </div>
+
+                <div class="lore-item" data-lore="4">
+                    <div class="lore-image-wrapper">
+                        <img src="/lore/lore4.png" alt="Lore 4" class="lore-image">
+                    </div>
+                    <div class="lore-text">
+                        <p>Together they marched - not as traders, but as believers. The BullGod Legion rose to claim their destiny… and build a new era on Base.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Collection Section -->
     <section style="background: black; padding: 80px 16px;">
         <div class="container">
@@ -271,7 +317,7 @@ import '../styles/global.css';
                 </div>
             </div>
 
-            <p style="text-align: center; font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 700; color: black; margin-top: 48px; font-style: italic; padding: 0 16px;">
+            <p style="text-align: center; font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 700; color: white; margin-top: 48px; font-style: italic; padding: 0 16px;">
                 Locked liquidity ensures long-term stability and fair trading for all participants.
             </p>
             <p style="text-align: center; font-size: clamp(0.875rem, 1.5vw, 1.125rem); font-weight: 900; color: #CB9D06; margin-top: 8px; padding: 0 16px;">
@@ -347,7 +393,7 @@ import '../styles/global.css';
                 <button class="btn" style="font-size: 1.125rem; padding: 24px 32px; cursor: pointer;">Chart</button>
             </a>
             <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-                    class="btn" style="background: #E63946; border-color: #CB9D06; color: #CB9D06;">
+                    class="btn" style="background: white; border-color: #CB9D06; color: black;">
                 ↑
             </button>
         </div>
@@ -455,6 +501,28 @@ import '../styles/global.css';
             window.requestAnimationFrame(step);
         }
 
+        // Intersection Observer for lore animation
+        function initLoreAnimation() {
+            const loreItems = document.querySelectorAll('.lore-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stop observing once visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            loreItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
         // Intersection Observer for tokenomics animation
         function initTokenomicsAnimation() {
             const tokenomicsSection = document.getElementById('tokenomicsSection');
@@ -499,6 +567,7 @@ import '../styles/global.css';
 
         // Initialize on page load
         window.addEventListener('load', () => {
+            initLoreAnimation();
             initTokenomicsAnimation();
         });
     </script>
