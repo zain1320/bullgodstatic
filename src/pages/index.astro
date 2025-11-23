@@ -122,9 +122,8 @@ import '../styles/global.css';
     <!-- Video Section -->
     <section class="video-section">
         <div class="video-container">
-            <video id="backgroundVideo" autoplay loop muted playsinline>
-                <source src="/videos/bullgod-video.mp4" type="video/mp4">
-                <source src="/videos/bullgod-video.webm" type="video/webm">
+            <video id="backgroundVideo" autoplay loop muted playsinline webkit-playsinline preload="auto">
+                <source src="/videos/bullgodvideo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -651,9 +650,64 @@ import '../styles/global.css';
             }
         }
 
+        // Initialize video playback (optimized for mobile)
+        function initVideo() {
+            const video = document.getElementById('backgroundVideo');
+            if (video) {
+                // Set all required attributes for mobile
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                video.setAttribute('playsinline', '');
+                video.setAttribute('webkit-playsinline', '');
+                video.preload = 'auto';
+                
+                // Load the video first
+                video.load();
+                
+                // Try to play immediately
+                const playVideo = () => {
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            console.log('Video playing successfully');
+                        }).catch(error => {
+                            console.log('Video autoplay prevented, will play on interaction:', error);
+                        });
+                    }
+                };
+                
+                // Try to play on load
+                if (video.readyState >= 2) {
+                    playVideo();
+                } else {
+                    video.addEventListener('loadeddata', playVideo, { once: true });
+                }
+                
+                // Fallback: play on any user interaction (mobile-friendly)
+                const startVideoOnInteraction = () => {
+                    video.play().then(() => {
+                        console.log('Video started on user interaction');
+                    }).catch(err => {
+                        console.log('Video play failed:', err);
+                    });
+                    // Remove listeners after first successful play
+                    document.removeEventListener('click', startVideoOnInteraction);
+                    document.removeEventListener('touchstart', startVideoOnInteraction);
+                    document.removeEventListener('scroll', startVideoOnInteraction);
+                };
+                
+                // Listen for various interaction events
+                document.addEventListener('click', startVideoOnInteraction, { once: true });
+                document.addEventListener('touchstart', startVideoOnInteraction, { once: true });
+                document.addEventListener('scroll', startVideoOnInteraction, { once: true });
+            }
+        }
+
         // Initialize on load
         window.addEventListener('load', () => {
             initMusic();
+            initVideo();
         });
 
         // Add listeners for user interaction to start music if autoplay was blocked

@@ -608,6 +608,12 @@ section {
     .video-container {
         padding-bottom: 100%; /* Square-ish on small mobile */
     }
+    
+    .video-container video {
+        /* Ensure video plays on mobile */
+        -webkit-playsinline: true;
+        playsinline: true;
+    }
 }
 
 /* Lore Section */
