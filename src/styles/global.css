@@ -559,6 +559,57 @@ section {
     font-weight: 900;
 }
 
+/* Video Section */
+.video-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.video-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Alternative: Fixed height video (uncomment if you prefer fixed height) */
+/*
+.video-container {
+    width: 100%;
+    height: 70vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+*/
+
+@media (max-width: 768px) {
+    .video-container {
+        padding-bottom: 75%; /* Taller aspect ratio on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        padding-bottom: 100%; /* Square-ish on small mobile */
+    }
+}
+
 /* Lore Section */
 .lore-container {
     width: 100%;
