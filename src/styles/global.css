@@ -4,11 +4,39 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #151515;
     color: white;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    touch-action: pan-y;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Prevent horizontal overflow on main containers */
+header,
+section,
+footer,
+.container,
+.hero-content,
+.header-top {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Animations */
@@ -63,6 +91,9 @@ header {
     z-index: 50;
     background: #151515;
     border-bottom: 2px solid black;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .header-top {
@@ -154,11 +185,16 @@ header {
     border-bottom: 2px solid black;
     padding: 8px 0;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
 }
 
 .ticker-content {
     display: flex;
     white-space: nowrap;
+    width: max-content;
+    will-change: transform;
 }
 
 .ticker-item {
@@ -271,12 +307,18 @@ header {
     justify-content: center;
     padding: 160px 16px 96px;
     background: #151515;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .hero-content {
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
 .hero-title {
@@ -417,11 +459,18 @@ header {
 /* Sections */
 section {
     padding: 80px 16px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -513,6 +562,7 @@ section {
 /* Collection */
 .collection-wrapper {
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 20px 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
@@ -521,6 +571,9 @@ section {
     margin: 0 -16px;
     padding-left: 16px;
     padding-right: 16px;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
 }
 
 @media (max-width: 480px) {
@@ -558,6 +611,7 @@ section {
     gap: 32px;
     animation: scroll-collection 80s linear infinite;
     width: max-content;
+    will-change: transform;
 }
 
 .collection-item {
@@ -795,6 +849,9 @@ footer {
     border-top: 4px solid #CB9D06;
     padding: 48px 16px;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .footer-title {

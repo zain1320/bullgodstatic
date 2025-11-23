@@ -7,9 +7,11 @@ import '../styles/global.css';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <title>BULLGOD - The Mighty Bull</title>
+    <link rel="icon" type="image/x-icon" href="/bullgodforweb.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/bullgodforweb.ico">
 </head>
 <body>
     <!-- Header -->
@@ -352,6 +354,41 @@ import '../styles/global.css';
     </footer>
 
     <script is:inline>
+        // Prevent horizontal scrolling
+        (function() {
+            function preventHorizontalScroll() {
+                document.documentElement.style.overflowX = 'hidden';
+                document.body.style.overflowX = 'hidden';
+                document.documentElement.style.width = '100%';
+                document.body.style.width = '100%';
+                document.body.style.maxWidth = '100%';
+                
+                // Prevent zoom from causing horizontal scroll
+                let viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover');
+                }
+            }
+            
+            // Run immediately
+            preventHorizontalScroll();
+            
+            // Run on load
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', preventHorizontalScroll);
+            } else {
+                preventHorizontalScroll();
+            }
+            
+            // Run on resize
+            window.addEventListener('resize', preventHorizontalScroll);
+            
+            // Run on orientation change
+            window.addEventListener('orientationchange', function() {
+                setTimeout(preventHorizontalScroll, 100);
+            });
+        })();
+        
         let ecosystemOpen = false;
         let menuOpen = false;
         let tokenomicsAnimated = false;
