@@ -1,9 +1,22 @@
 {
-  "name": "bullgod-static-site",
+  "name": "bullgod-website",
+  "type": "module",
   "version": "1.0.0",
-  "description": "Static HTML site for BullGod",
+  "description": "BullGod website built with Astro",
   "scripts": {
-    "build": "echo 'Static site - no build needed'"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.15.0"
+  },
+  "devDependencies": {
+    "@astrojs/vercel": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
-

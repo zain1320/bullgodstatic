@@ -1,0 +1,470 @@
+---
+// Astro page component
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>BULLGOD - The Mighty Bull</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo-container">
+                <img src="/bullgodtransparent.png" alt="BULLGOD Logo" class="logo-img">
+                <h1 class="logo-text">BULLGOD</h1>
+            </div>
+            <div class="header-buttons">
+                <button class="btn" onclick="toggleEcosystem()" id="ecosystemBtn">ECOSYSTEM ▼</button>
+                <button class="btn menu-btn" onclick="toggleMenu()">
+                    <div class="menu-line"></div>
+                    <div class="menu-line"></div>
+                    <div class="menu-line"></div>
+                </button>
+            </div>
+        </div>
+        <div class="ticker-bar">
+            <div class="ticker-content animate-scroll">
+                <span class="ticker-item">THE MIGHTY BULL · POWER RETURNS</span>
+                <span class="ticker-item">DIGITAL STRENGTH · BULLISH SPIRIT</span>
+                <span class="ticker-item">THE ULTIMATE GUARDIAN · FORTUNE RISES</span>
+                <span class="ticker-item">THE MIGHTY BULL · POWER RETURNS</span>
+                <span class="ticker-item">DIGITAL STRENGTH · BULLISH SPIRIT</span>
+                <span class="ticker-item">THE ULTIMATE GUARDIAN · FORTUNE RISES</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ecosystem Dropdown -->
+    <div id="ecosystemDropdown" style="display: none;">
+        <div class="dropdown">
+            <div class="dropdown-header">
+                <h3>ECOSYSTEM ▲</h3>
+                <button class="close-btn" onclick="toggleEcosystem()">✕</button>
+            </div>
+            <div class="dropdown-content">
+                <a href="https://coinmarketcap.com/currencies/bullgod/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="dropdown-item">
+                        <span class="dropdown-item-text">COINMARKETCAP</span>
+                    </div>
+                </a>
+                <a href="https://www.coingecko.com/en/coins/bull-god" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="dropdown-item">
+                        <span class="dropdown-item-text">COINGECKO</span>
+                    </div>
+                </a>
+                <a href="https://www.geckoterminal.com/base/pools/0x24b2734e7d769f53a2a1f2cf969c754227b6005b" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="dropdown-item">
+                        <span class="dropdown-item-text">GECKOTERMINAL</span>
+                    </div>
+                </a>
+                <a href="https://dexscreener.com/base/0x24b2734e7d769f53a2a1f2cf969c754227b6005b" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="dropdown-item">
+                        <span class="dropdown-item-text">DEXSCREENER</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="overlay" onclick="toggleEcosystem()"></div>
+    </div>
+
+    <!-- Social Menu -->
+    <div id="socialMenu" style="display: none;">
+        <div class="dropdown">
+            <div class="dropdown-header" style="background: #CB9D06;">
+                <h3 style="color: black;">SOCIAL MEDIA</h3>
+                <button class="close-btn" onclick="toggleMenu()">✕</button>
+            </div>
+            <div class="dropdown-content">
+                <a href="https://x.com/BullGodonBase" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="dropdown-item">
+                        <span class="dropdown-item-text">TWITTER</span>
+                    </div>
+                </a>
+                <a href="https://t.me/bullgodonbase" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="dropdown-item">
+                        <span class="dropdown-item-text">TELEGRAM</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="overlay" onclick="toggleMenu()"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-decoration">BULLGOD</div>
+        
+        <div class="hero-content">
+            <img src="/bullgodtransparent.png" alt="Bull God" style="width: 300px; height: auto; margin: 0 auto 32px; display: block; max-width: 80vw;">
+            <div class="hero-title animate-fade-up">MASCOT OF THE<br>BULL RUN</div>
+            <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s;">THE POWER OF BASE · DIGITAL DOMINANCE</p>
+            <p class="hero-description animate-fade-up" style="animation-delay: 0.4s;">Born from strength. Guided by power. Built for victory.</p>
+            <a href="https://x.com/BullGodonBase" target="_blank" class="cta-button animate-fade-up" style="animation-delay: 0.8s;">FOLLOW US</a>
+            <button onclick="copyAddress()" class="ca-button animate-fade-up" style="animation-delay: 1s; font-size: 1rem; padding: 16px 24px; margin: 16px auto 0; position: relative; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <span class="ca-text" style="flex: 1; text-align: center;">CA: 0x56d4938431F7Fae7c6741E061aa2683dF12256F8</span>
+                <svg class="copy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-left: 8px;">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <div id="copyToast" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: black; color: #CB9D06; padding: 16px 24px; border: 3px solid #CB9D06; border-radius: 8px; font-weight: 700; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000; white-space: nowrap; max-width: 90vw; text-align: center;">Address copied! ✓</div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section style="background: black; padding: 80px 16px;">
+        <div class="container">
+            <h2 class="section-title">POWER COLLECTION</h2>
+            <p class="section-subtitle" style="color: white;">BULL WARRIORS</p>
+
+            <div class="collection-wrapper">
+                <div class="collection-scroll">
+                <div class="collection-item">
+                    <img src="/collection/1761463487575.jpg" alt="URBAN WARRIOR" class="collection-image">
+                    <div class="collection-number">01</div>
+                    <div class="collection-title">URBAN WARRIOR</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">CITY × MUSCLE × DOMINANCE</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/download_1.png" alt="BULL MASTER" class="collection-image">
+                    <div class="collection-number">02</div>
+                    <div class="collection-title">BULL MASTER</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">MIGHT × FORCE × GLORY</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/4b6b6669-f041-4b29-9401-68e0c0116f4d.png" alt="TEMPLE GUARDIAN" class="collection-image">
+                    <div class="collection-number">03</div>
+                    <div class="collection-title">TEMPLE GUARDIAN</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">SACRED × POWER × PROTECTION</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/704e0563-c9ed-42b0-ac29-a8f1a70c7e6f.png" alt="SEA COMMANDER" class="collection-image">
+                    <div class="collection-number">04</div>
+                    <div class="collection-title">SEA COMMANDER</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">NAVY × FLEET × AUTHORITY</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/download_6.png" alt="DIGITAL SAVAGE" class="collection-image">
+                    <div class="collection-number">05</div>
+                    <div class="collection-title">DIGITAL SAVAGE</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">TECH × SPEED × FEARLESS</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/f26fe5b0-ea31-479a-92dd-e7c818222ee7.png" alt="MYTHIC BEAST" class="collection-image">
+                    <div class="collection-number">06</div>
+                    <div class="collection-title">MYTHIC BEAST</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">ANCIENT × FURY × IMMORTAL</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/IMG_20251020_223635_861.png" alt="BULL EMPEROR" class="collection-image">
+                    <div class="collection-number">07</div>
+                    <div class="collection-title">BULL EMPEROR</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">THRONE × REGAL × SOVEREIGN</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/newimage.png" alt="SPACE BULL" class="collection-image">
+                    <div class="collection-number">08</div>
+                    <div class="collection-title">SPACE BULL</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">SPACE × POWER × INFINITY</p>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="collection-item">
+                    <img src="/collection/1761463487575.jpg" alt="BULL 1" class="collection-image">
+                    <div class="collection-number">01</div>
+                    <div class="collection-title">URBAN WARRIOR</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">CITY × MUSCLE × DOMINANCE</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/download_1.png" alt="BULL 2" class="collection-image">
+                    <div class="collection-number">02</div>
+                    <div class="collection-title">BULL MASTER</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">MIGHT × FORCE × GLORY</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/4b6b6669-f041-4b29-9401-68e0c0116f4d.png" alt="BULL 3" class="collection-image">
+                    <div class="collection-number">03</div>
+                    <div class="collection-title">TEMPLE GUARDIAN</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">SACRED × POWER × PROTECTION</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/704e0563-c9ed-42b0-ac29-a8f1a70c7e6f.png" alt="BULL 4" class="collection-image">
+                    <div class="collection-number">04</div>
+                    <div class="collection-title">SEA COMMANDER</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">NAVY × FLEET × AUTHORITY</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/download_6.png" alt="BULL 5" class="collection-image">
+                    <div class="collection-number">05</div>
+                    <div class="collection-title">DIGITAL SAVAGE</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">TECH × SPEED × FEARLESS</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/f26fe5b0-ea31-479a-92dd-e7c818222ee7.png" alt="BULL 6" class="collection-image">
+                    <div class="collection-number">06</div>
+                    <div class="collection-title">MYTHIC BEAST</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">ANCIENT × FURY × IMMORTAL</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/IMG_20251020_223635_861.png" alt="BULL 7" class="collection-image">
+                    <div class="collection-number">07</div>
+                    <div class="collection-title">BULL EMPEROR</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">THRONE × REGAL × SOVEREIGN</p>
+                </div>
+                <div class="collection-item">
+                    <img src="/collection/newimage.png" alt="BULL 8" class="collection-image">
+                    <div class="collection-number">08</div>
+                    <div class="collection-title">SPACE BULL</div>
+                    <p style="color: white; font-weight: 700; font-size: 0.875rem; margin-bottom: 8px;">SPACE × POWER × INFINITY</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomicsSection" style="background: #151515;">
+        <div class="container">
+            <h2 class="section-title">TOKENOMICS</h2>
+            <p class="section-subtitle">POWER ECONOMY</p>
+
+            <div class="total-supply">
+                <div class="supply-card">
+                    <div class="supply-emoji" style="font-size: 3rem; margin-bottom: 16px;">💰</div>
+                    <div class="token-label">TOTAL SUPPLY</div>
+                    <div class="supply-value" style="color: white; font-size: 3rem; font-weight: 900;" id="totalSupply">0</div>
+                    <div class="token-bar"></div>
+                </div>
+            </div>
+
+            <div class="tokenomics-grid">
+                <div class="tokenomics-card">
+                    <div class="token-icon">💧</div>
+                    <div class="token-label">LP</div>
+                    <div class="token-value" id="lpValue">0%</div>
+                    <div class="token-bar"></div>
+                </div>
+                <div class="tokenomics-card">
+                    <div class="token-icon">🔒</div>
+                    <div class="token-label">LOCKED</div>
+                    <div class="token-value" id="lockValue">0%</div>
+                    <div class="token-bar"></div>
+                </div>
+                <div class="tokenomics-card">
+                    <div class="token-icon">📢</div>
+                    <div class="token-label">MARKETING</div>
+                    <div class="token-value" id="mktValue">0%</div>
+                    <div class="token-bar"></div>
+                </div>
+                <div class="tokenomics-card">
+                    <div class="token-icon">👥</div>
+                    <div class="token-label">TEAM</div>
+                    <div class="token-value" id="teamValue">0%</div>
+                    <div class="token-bar"></div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 700; color: black; margin-top: 48px; font-style: italic; padding: 0 16px;">
+                Locked liquidity ensures long-term stability and fair trading for all participants.
+            </p>
+            <p style="text-align: center; font-size: clamp(0.875rem, 1.5vw, 1.125rem); font-weight: 900; color: #CB9D06; margin-top: 8px; padding: 0 16px;">
+                SECURED TOKENS FOR LONG-TERM PROJECT STABILITY
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Videos Section -->
+    <section class="tweets-section" style="position: relative;">
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 style="font-size: clamp(2rem, 6vw, 5rem); font-weight: 900; text-align: center; margin-bottom: 16px; padding: 0 16px;">
+                <span style="color: white;">FEATURED</span> 
+                <span style="color: #CB9D06;">CONTENT</span>
+            </h2>
+            <p style="font-size: clamp(0.875rem, 2vw, 1.25rem); text-align: center; color: white; font-weight: 400; margin-bottom: 16px; padding: 0 16px;">
+                Community highlights and updates
+            </p>
+            
+            <div class="tweets-grid">
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=pzM2_0eT9Fk" target="_blank" rel="noopener noreferrer">
+                        <img src="/videos/video1.jpg" alt="Video 1" onerror="this.src='https://img.youtube.com/vi/pzM2_0eT9Fk/maxresdefault.jpg'">
+                        <div class="video-play-overlay"></div>
+                    </a>
+                </div>
+                
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=_VVWG5pTVqA" target="_blank" rel="noopener noreferrer">
+                        <img src="/videos/video2.jpg" alt="Video 2" onerror="this.src='https://img.youtube.com/vi/_VVWG5pTVqA/maxresdefault.jpg'">
+                        <div class="video-play-overlay"></div>
+                    </a>
+                </div>
+                
+                <div class="video-item">
+                    <a href="https://x.com/FinanceFreeman/status/1977856879595344300" target="_blank" rel="noopener noreferrer">
+                        <img src="/tweets/tweet1.png" alt="Giveaway Tweet" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMkUyREYyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNGMkRCNjkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuNGVtIj5BTVErR0lWRUFXRVk8L3RleHQ+PC9zdmc+'">
+                    </a>
+                </div>
+                
+                <div class="video-item">
+                    <a href="https://x.com/BullGodonBase/status/1977118298958393352" target="_blank" rel="noopener noreferrer">
+                        <img src="/tweets/tweet2.png" alt="GTA5 Tweet" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMkUyREYyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNGMkRCNjkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuNGVtIj5CUUxMREdPRCBHVEE1IE1PRDwvdGV4dD48L3N2Zz4='">
+                    </a>
+                </div>
+                
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=O2b-HoAuJu4" target="_blank" rel="noopener noreferrer">
+                        <img src="/videos/video3.jpg" alt="Video 3" onerror="this.src='https://img.youtube.com/vi/O2b-HoAuJu4/maxresdefault.jpg'">
+                        <div class="video-play-overlay"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: #151515; padding: 128px 16px;">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="font-size: clamp(3rem, 8vw, 6rem);">THE MIGHTY BULL</h2>
+            <p class="section-subtitle" style="color: black; font-size: 2.5rem;">POWER HAS ARRIVED</p>
+            <p style="font-size: clamp(1rem, 2vw, 1.25rem); margin: 16px 0; padding: 0 16px;">The legend has awakened. The Mighty Bull charges forward.</p>
+            <p style="font-size: clamp(0.875rem, 1.5vw, 1.125rem); color: black; font-weight: 700; margin-bottom: 48px; padding: 0 16px;">STRENGTH UNLEASHED — DOMINANCE ACHIEVED.</p>
+            <a href="https://x.com/BullGodonBase" target="_blank" class="cta-button" style="font-size: clamp(1rem, 2vw, 1.25rem); padding: clamp(20px, 4vw, 32px) clamp(32px, 6vw, 48px);">FOLLOW US</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 class="footer-title">DexScreener</h3>
+            <a href="https://dexscreener.com/base/0x24b2734e7d769f53a2a1f2cf969c754227b6005b" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block; margin-bottom: 32px;">
+                <button class="btn" style="font-size: 1.125rem; padding: 24px 32px; cursor: pointer;">Chart</button>
+            </a>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                    class="btn" style="background: #E63946; border-color: #CB9D06; color: #CB9D06;">
+                ↑
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        let ecosystemOpen = false;
+        let menuOpen = false;
+        let tokenomicsAnimated = false;
+
+        function toggleEcosystem() {
+            ecosystemOpen = !ecosystemOpen;
+            document.getElementById('ecosystemDropdown').style.display = ecosystemOpen ? 'block' : 'none';
+            document.getElementById('ecosystemBtn').textContent = 'ECOSYSTEM ' + (ecosystemOpen ? '▲' : '▼');
+        }
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            document.getElementById('socialMenu').style.display = menuOpen ? 'block' : 'none';
+        }
+        
+        function copyAddress() {
+            const address = '0x56d4938431F7Fae7c6741E061aa2683dF12256F8';
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(address).then(() => {
+                    showToast();
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast();
+                } catch (err) {
+                    console.error('Failed to copy');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+        
+        function showToast() {
+            const toast = document.getElementById('copyToast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2000);
+        }
+
+        // Tokenomics counting animation
+        function animateValue(element, start, end, duration, suffix = '') {
+            let startTimestamp = null;
+            
+            function step(timestamp) {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString() + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for tokenomics animation
+        function initTokenomicsAnimation() {
+            const tokenomicsSection = document.getElementById('tokenomicsSection');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !tokenomicsAnimated) {
+                        tokenomicsAnimated = true;
+                        
+                        // Animate total supply
+                        const totalSupplyElement = document.getElementById('totalSupply');
+                        animateValue(totalSupplyElement, 0, 1000000000, 2000);
+                        
+                        // Animate percentages with staggered timing
+                        setTimeout(() => {
+                            const lpValue = document.getElementById('lpValue');
+                            animateValue(lpValue, 0, 87, 1500, '%');
+                        }, 300);
+                        
+                        setTimeout(() => {
+                            const lockValue = document.getElementById('lockValue');
+                            animateValue(lockValue, 0, 9, 1200, '%');
+                        }, 600);
+                        
+                        setTimeout(() => {
+                            const mktValue = document.getElementById('mktValue');
+                            animateValue(mktValue, 0, 3, 800, '%');
+                        }, 900);
+                        
+                        setTimeout(() => {
+                            const teamValue = document.getElementById('teamValue');
+                            animateValue(teamValue, 0, 1, 600, '%');
+                        }, 1200);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            if (tokenomicsSection) {
+                observer.observe(tokenomicsSection);
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            initTokenomicsAnimation();
+        });
+    </script>
+</body>
+</html>
+
