@@ -120,12 +120,12 @@ import '../styles/global.css';
     </section>
 
     <!-- Lore Section -->
-    <section id="loreSection" style="background: #151515; padding: 80px 16px;">
+    <section id="loreSection" style="background: #151515; padding: 80px 0 0;">
         <div class="container">
             <h2 class="section-title">THE LEGEND</h2>
-            <p class="section-subtitle" style="color: #CB9D06;">BULLGOD'S ORIGIN</p>
-
-            <div class="lore-container">
+            <p class="section-subtitle" style="color: #CB9D06; margin-bottom: 48px;">BULLGOD'S ORIGIN</p>
+        </div>
+        <div class="lore-container">
                 <div class="lore-item" data-lore="1">
                     <div class="lore-image-wrapper">
                         <img src="/lore/lore1.png" alt="Lore 1" class="lore-image">
@@ -162,7 +162,6 @@ import '../styles/global.css';
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Collection Section -->
@@ -570,7 +569,96 @@ import '../styles/global.css';
             initLoreAnimation();
             initTokenomicsAnimation();
         });
+
+        // Background music
+        let musicMuted = false;
+        let backgroundMusic = null;
+        let muteIcon = null;
+
+        function toggleMusic() {
+            if (!backgroundMusic) {
+                backgroundMusic = document.getElementById('backgroundMusic');
+            }
+            if (!muteIcon) {
+                muteIcon = document.getElementById('muteIcon');
+            }
+            if (backgroundMusic && muteIcon) {
+                if (musicMuted) {
+                    backgroundMusic.play().catch(err => {
+                        console.log('Could not play music:', err);
+                    });
+                    musicMuted = false;
+                    muteIcon.textContent = '🔊';
+                } else {
+                    backgroundMusic.pause();
+                    musicMuted = true;
+                    muteIcon.textContent = '🔇';
+                }
+            }
+        }
+
+        // Make toggleMusic globally accessible
+        window.toggleMusic = toggleMusic;
+
+        // Initialize music on page load
+        function initMusic() {
+            backgroundMusic = document.getElementById('backgroundMusic');
+            muteIcon = document.getElementById('muteIcon');
+            
+            if (backgroundMusic && muteIcon) {
+                backgroundMusic.volume = 0.5; // Set volume to 50%
+                backgroundMusic.loop = true; // Loop the music
+                
+                // Try to autoplay (browsers may block this)
+                backgroundMusic.play().then(() => {
+                    musicMuted = false;
+                    muteIcon.textContent = '🔊';
+                }).catch(err => {
+                    // Autoplay was prevented - user interaction required
+                    console.log('Autoplay prevented, waiting for user interaction');
+                    musicMuted = true;
+                    muteIcon.textContent = '🔇';
+                });
+            }
+        }
+
+        // Try to start music on first user interaction
+        function startMusicOnInteraction() {
+            if (!backgroundMusic) {
+                backgroundMusic = document.getElementById('backgroundMusic');
+            }
+            if (!muteIcon) {
+                muteIcon = document.getElementById('muteIcon');
+            }
+            if (backgroundMusic && muteIcon && musicMuted) {
+                backgroundMusic.play().then(() => {
+                    musicMuted = false;
+                    muteIcon.textContent = '🔊';
+                }).catch(err => {
+                    console.log('Could not start music:', err);
+                });
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            initMusic();
+        });
+
+        // Add listeners for user interaction to start music if autoplay was blocked
+        document.addEventListener('click', startMusicOnInteraction, { once: true });
+        document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
     </script>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" preload="auto">
+        <source src="/music/bullgodmusic.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Mute Button -->
+    <button id="muteButton" class="mute-button" onclick="toggleMusic()" aria-label="Toggle music">
+        <span id="muteIcon">🔊</span>
+    </button>
 </body>
 </html>
 
